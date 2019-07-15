@@ -18,7 +18,13 @@
     * [第4节 Zookeeper](./highperformance/zookeeper/README.md)
     * 第5节 Mysql
     * 第6节 MongoDB
-    * 第7节 高性能缓存开发
+    * [第7节 高性能缓存开发](./highperformance/cache/README.md)
+        * [1 缓存雪崩解决方案](./highperformance/cache/herd.md)
+        * [2 缓存粒度控制](./highperformance/cache/granularity.md)
+        * [3 缓存击穿](./highperformance/cache/breakdown.md)
+        * [4 缓存热点Key重建优化](./highperformance/cache/key.md)
+        * [5 缓存同步](./highperformance/cache/SYNC.md)
+        * [6 Spring Cache开发](./highperformance/cache/spring.md)
     * 第8节 Redis
     * 第9节 Memcached
     * 第10节 ActiveMQ
@@ -40,5 +46,5 @@
     * [第1节 MarkDown语法](./tools/markdown/README.md)
     * [第2节 GitBook使用](./tools/gitbook/README.md)
     * [第3节 GitHub使用](./tools/github/README.md)
-      * [1 利用git bash（git命令行）将本地代码上传到github上](./tools/github/gitBash.md)
+        * [1 利用git bash（git命令行）将本地代码上传到github上](./tools/github/gitBash.md)
 
