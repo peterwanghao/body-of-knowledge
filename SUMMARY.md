@@ -25,8 +25,10 @@
         * [4 缓存热点Key重建优化](./highperformance/cache/key.md)
         * [5 缓存同步](./highperformance/cache/SYNC.md)
         * [6 Spring Cache开发](./highperformance/cache/spring.md)
-    * 第8节 Redis
-    * 第9节 Memcached
+    * [第8节 Redis](./highperformance/redis/README.md)
+        * [1 用Redis作为Mysql数据库的缓存](./highperformance/redis/mysql.md)
+    * [第9节 Memcached](./highperformance/memcached/README.md)
+        * [1 利用Memcache解决数据库高并发访问的瓶颈问题](./highperformance/memcached/database.md)
     * 第10节 ActiveMQ
     * 第11节 RabbitMQ
     * 第12节 Kafka
