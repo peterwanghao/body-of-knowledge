@@ -1,5 +1,9 @@
 # 第3节 Nginx
 
+nginx可以通过HttpLimitReqModul和HttpLimitZoneModule配置来限制ip在同一时间段的访问次数来防cc攻击。
+
+
+
 ## 网络请求路径
 
 （客户端输入URL定位符）→（DNS服务器寻找映射）→（进入服务器，处理数据）→（返回数据至客户端）

@@ -25,6 +25,7 @@
     * [第7节 安全](./basis/security/README.md)
         * [1 TCP的三次握手与四次挥手理解](./basis/security/tcp.md)
         * [2 SSL双向认证和SSL单向认证的区别](./basis/security/ssl.md)
+    * [第8节 REST](./basis/rest/README.md)
 * [第二章 高性能架构](./highperformance/README.md)
     * [第1节 分布式架构思想](./highperformance/distributed/README.md)
         * [1 大型互联网架构演进过程](./highperformance/distributed/process/README.md)
