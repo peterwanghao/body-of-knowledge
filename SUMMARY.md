@@ -79,6 +79,7 @@
 * [第三章 微服务架构](./microservices/README.md)
     * [第1节 服务的前世今生](./microservices/history/README.md)
         * [1 SaaS微服务十二要素应用宣言](./microservices/history/twelve-factor.md)
+        * [2 云原生机制的三个核心思想及其未来之路](./microservices/history/cloud-native.md)
     * [第2节 基于分布式思想下的RPC解决方案](./microservices/RPC/README.md)
     * [第3节 Dubbo应用及源码解读](./microservices/Dubbo/README.md)
         * [1 网易考拉海购Dubbok框架优化详解](./microservices/Dubbo/NetEase.md)
