@@ -1,5 +1,11 @@
 # 3.1 分布式事务实现
 
+知名的分布式事务管理器主要有atomikos、bitronix、narayana。其中，仅atomikos支持XA和TCC两种机制，bitronix、narayana仅支持XA机制。这三者都不提供对dubbo的开箱即用的支持，需要自行集成。
+
+目前对dubbo提供开箱即用支持的分布式事务管理器有：[ByteJTA](https://link.zhihu.com/?target=https%3A//github.com/liuyangming/ByteJTA)（基于XA机制）、[ByteTCC](https://link.zhihu.com/?target=https%3A//github.com/liuyangming/ByteTCC)（基于TCC机制）。
+
+
+
 SpringBoot 集成 Atomikos 实现分布式事务
 
 ## Atomikos 
