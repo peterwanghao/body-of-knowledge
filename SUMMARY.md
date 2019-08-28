@@ -43,6 +43,7 @@
             * [3.2 TX-LCN分布式事务框架](./highperformance/solution/transaction/tx-lcn.md)
             * [3.3 GTS分布式事务中间件](./highperformance/solution/transaction/GTS.md)
             * [3.4 JTA](./highperformance/solution/transaction/JTA.md)
+            * [3.5 Seata](./highperformance/solution/transaction/seata.md)
         * [4 分布式锁解决方案](./highperformance/solution/lock/README.md)
         * [5 分布式单点登录SSO](./highperformance/solution/SSO/README.md)
         * [6 分布式调度任务](./highperformance/solution/schedule/README.md)
@@ -107,5 +108,6 @@
     * [第2节 GitBook使用](./tools/gitbook/README.md)
     * [第3节 GitHub使用](./tools/github/README.md)
         * [1 利用git bash（git命令行）将本地代码上传到github上](./tools/github/gitBash.md)
+        * [2 fork 别人的项目 源作者更新后如何同步更新](./tools/github/merge.md)
     * [第4节 Typora使用](./tools/typora/README.md)
 

@@ -10,3 +10,6 @@ Narayana是一款使用Java来实现JTA标准的事务处理器，也做为Wildf
 
 JTA事务管理器-Atomikos 还是 *Bitronix*
 
+
+
+事务管理器中的持久事务日志是分布式事务的必要条件。
