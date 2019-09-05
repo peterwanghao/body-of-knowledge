@@ -110,7 +110,7 @@ TXC/GTS/Fescar 一脉相承，为解决微服务架构下的分布式事务问�
 
 ![RM in Architecture](https://upload-images.jianshu.io/upload_images/4420767-a4c9e542fec10c39.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-XA 方案的 RM 实际上是在数据库层，RM 本质上就是数据库自身（通过提供支持 XA 的驱动程序来供应用使用）。
+**XA 方案的 RM 实际上是在数据库层，RM 本质上就是数据库自身（通过提供支持 XA 的驱动程序来供应用使用）。**
 
 而 Fescar 的 RM 是以二方包的形式作为中间件层部署在应用程序这一侧的，不依赖与数据库本身对协议的支持，当然也不需要数据库支持 XA 协议。这点对于微服务化的架构来说是非常重要的：应用层不需要为本地事务和分布式事务两类不同场景来适配两套不同的数据库驱动。
 
