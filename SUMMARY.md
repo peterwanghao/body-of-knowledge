@@ -109,5 +109,6 @@
     * [第3节 GitHub使用](./tools/github/README.md)
         * [1 利用git bash（git命令行）将本地代码上传到github上](./tools/github/gitBash.md)
         * [2 fork 别人的项目 源作者更新后如何同步更新](./tools/github/merge.md)
+        * [3 提交issue模板](./tools/github/issueTemplate.md)
     * [第4节 Typora使用](./tools/typora/README.md)
 
