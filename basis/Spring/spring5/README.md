@@ -144,8 +144,23 @@ Jigsaw将成为Java 9的一部分，Spring Framework 5.0将包含对Jigsaw模块
 Kotlin是一种静态类型的JVM语言，可以实现具有更好的表达性，简洁性和可读性的代码。 Spring框架5.0对Kotlin有很好的支持。
 
 考虑一个简单的Kotlin程序，说明一个data类，如下所示：
-
-import java.util.*dataclassTodo(var description: String,var name: String,var      targetDate : Date)funmain(args: Array<String>){var todo =Todo("Learn Spring Boot","Jack",Date())println(todo)//Todo(description=Learn Spring Boot, name=Jack, //targetDate=Mon May 22 04:26:22 UTC 2017)var todo2 = todo.copy(name ="Jill")println(todo2)//Todo(description=Learn Spring Boot, name=Jill, //targetDate=Mon May 22 04:26:22 UTC 2017)var todo3 = todo.copy()println(todo3.equals(todo))//true}
+```
+import java.util.*
+    data class Todo(var description: String, var name: String, var  
+    targetDate : Date)
+    fun main(args: Array<String>) {
+      var todo = Todo("Learn Spring Boot", "Jack", Date())
+      println(todo)
+        //Todo(description=Learn Spring Boot, name=Jack, 
+        //targetDate=Mon May 22 04:26:22 UTC 2017)
+      var todo2 = todo.copy(name = "Jill")
+      println(todo2)
+         //Todo(description=Learn Spring Boot, name=Jill, 
+         //targetDate=Mon May 22 04:26:22 UTC 2017)
+      var todo3 = todo.copy()
+      println(todo3.equals(todo)) //true
+    }  
+```
 
 在不到10行代码中，我们创建并测试了一个具有三个属性和以下方法的数据bean：
 
@@ -155,20 +170,30 @@ import java.util.*dataclassTodo(var description: String,var name: String,var    
 - copy()
 
 Kotlin是强类型的。 但是不需要明确指定每个变量的类型：
-
-val arrayList =arrayListOf("Item1","Item2","Item3")// Type is ArrayList
+```
+val arrayList =arrayListOf("Item1","Item2","Item3")
+// Type is ArrayList
+```
 
 命名参数允许你在调用方法时指定参数的名称，从而保持更可读的代码：
-
+```
 var todo =Todo(description ="Learn Spring Boot",     name ="Jack", targetDate =Date())
+```
 
 Kotlin通过提供默认变量（it）和诸如take，drop等方法使函数式编程更简单：
-
+```
 var first3TodosOfJack = students.filter{ it.name =="Jack"}.take(3)
+```
 
 还可以为Kotlin中的参数指定默认值：
-
-import java.util.*dataclassTodo(var description: String,var name: String,var    targetDate : Date =Date())funmain(args: Array<String>){var todo =Todo(description ="Learn Spring Boot", name ="Jack")}
+```
+import java.util.*
+    data class Todo(var description: String, var name: String, var
+    targetDate : Date = Date())
+    fun main(args: Array<String>) {
+      var todo = Todo(description = "Learn Spring Boot", name = "Jack")
+    }
+```
 
 由于它的所有特性使代码简洁而富有表现力，我们希望Kotlin能够成为一门语言。
 
