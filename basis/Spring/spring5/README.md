@@ -84,14 +84,14 @@ Spring WebFlux：启用基于响应式编程的Web应用程序的开发。 提�
 除了响应式特性之外，Spring 5还提供了一个函数式Web框架。
 
 函数式Web框架提供了使用函数式编程风格来定义endpoints的功能。 这里显示一个简单的hello world示例：
-```
+```java
  RouterFunction<String> route =
     route(GET("/hello-world"),
     request -> Response.ok().body(fromObject("Hello World")));
 ```
 
 函数式Web框架也可用于定义更复杂的路由（routes），如以下示例所示：
-```
+```java
   RouterFunction<?> route = route(GET("/todos/{id}"),
     request -> {
        Mono<Todo> todo = Mono.justOrEmpty(request.pathVariable("id"))
@@ -144,7 +144,7 @@ Jigsaw将成为Java 9的一部分，Spring Framework 5.0将包含对Jigsaw模块
 Kotlin是一种静态类型的JVM语言，可以实现具有更好的表达性，简洁性和可读性的代码。 Spring框架5.0对Kotlin有很好的支持。
 
 考虑一个简单的Kotlin程序，说明一个data类，如下所示：
-```
+```java
 import java.util.*
     data class Todo(var description: String, var name: String, var  
     targetDate : Date)
@@ -170,23 +170,23 @@ import java.util.*
 - copy()
 
 Kotlin是强类型的。 但是不需要明确指定每个变量的类型：
-```
+```java
 val arrayList =arrayListOf("Item1","Item2","Item3")
 // Type is ArrayList
 ```
 
 命名参数允许你在调用方法时指定参数的名称，从而保持更可读的代码：
-```
+```java
 var todo =Todo(description ="Learn Spring Boot",     name ="Jack", targetDate =Date())
 ```
 
 Kotlin通过提供默认变量（it）和诸如take，drop等方法使函数式编程更简单：
-```
+```java
 var first3TodosOfJack = students.filter{ it.name =="Jack"}.take(3)
 ```
 
 还可以为Kotlin中的参数指定默认值：
-```
+```java
 import java.util.*
     data class Todo(var description: String, var name: String, var
     targetDate : Date = Date())
