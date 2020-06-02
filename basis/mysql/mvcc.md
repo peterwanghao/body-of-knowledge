@@ -1,6 +1,6 @@
 # 3 MVCC是如何解决幻读
 
-InnoDB和XtraDB存储引擎通过多版本并发控制（**MVCC**，MultiversionConcurrencyControl）解决了幻读的问题。
+InnoDB和XtraDB存储引擎通过多版本并发控制（**MVCC**，MultiVersionConcurrencyControl）解决了幻读的问题。
 
 
 
