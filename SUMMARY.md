@@ -23,6 +23,7 @@
         * [2 MySQL的四种事务隔离级别](./basis/mysql/transaction.md)
         * [3 MVCC是如何解决幻读](./basis/mysql/mvcc.md)
         * [4 MySQL的存储引擎](./basis/mysql/storageEngine.md)
+        * [5 SQL查询语句](./basis/mysql/sqlSelect.md)
     * [第6节 Spring](./basis/Spring/README.md)
         * [1 Spring MVC](./basis/Spring/mvc/README.md)
         * [2 Spring Data JPA 与 MyBatis对比](./basis/Spring/spring-data-jpa.md)
