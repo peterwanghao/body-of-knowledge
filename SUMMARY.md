@@ -8,6 +8,7 @@
         * [2 JVM内存管理](./basis/java/jvm/README.md)
             * [2.1 常见问题解答](./basis/java/jvm/FAQ.md)
             * [2.2 Java垃圾回收](./basis/java/jvm/GC.md)
+            * [2.3 JVM介绍与参数详解](./basis/java/jvm/Params.md)
         * [3 Java类加载](./basis/java/classload/README.md)
     * [第2节 并发编程](./basis/concurrent/README.md)
         * [1 Synchronized](./basis/concurrent/synchronized.md)
