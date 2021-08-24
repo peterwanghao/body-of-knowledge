@@ -35,6 +35,7 @@
     * [第8节 REST](./basis/rest/README.md)
     * [第9节 UML](./basis/UML/README.md)
         * [1 UML六种依赖关系](./basis/UML/relation.md)
+    * [第10节 设计模式](./basis/designPattern/README.md)
 * [第二章 高性能架构](./highperformance/README.md)
     * [第1节 分布式架构思想](./highperformance/distributed/README.md)
         * [1 大型互联网架构演进过程](./highperformance/distributed/process/README.md)
