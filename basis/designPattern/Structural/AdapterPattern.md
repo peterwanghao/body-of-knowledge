@@ -82,7 +82,7 @@ public class WildChicken implements Chicken {
 ```
 
 
-鸭接口有 fly() 和 quare()2个方法，鸡 Chicken 如果要冒充鸭，fly() 方法是现成的，但是鸡不会鸭的<font color=#ff00a>嘎嘎叫，没有 quack() 方法</font>。这个时候就需要适配器了：
+鸭接口有 fly() 和 quack()2个方法，鸡 Chicken 如果要冒充鸭，fly() 方法是现成的，但是鸡不会鸭的<font color=#ff00a>嘎嘎叫，没有 quack() 方法</font>。这个时候就需要适配器了：
 
 ```java
 // 毫无疑问，首先，这个适配器肯定需要 implements Duck，这样才能当做鸭来用
@@ -90,7 +90,7 @@ public class ChickenAdapter implements Duck {
   
     private Chicken chicken;
     // 构造方法中需要一个鸡的实例，此类就是将这只鸡适配成鸭来用
-   public CockAdapter(Chicken chicken) {
+   public ChickenAdapter(Chicken chicken) {
         this.chicken = chicken;
     }
   
