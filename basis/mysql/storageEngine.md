@@ -47,3 +47,10 @@ InnoDB适合：
 - （3）如果你的数据执行大量的INSERT或UPDATE，出于性能方面的考虑，应该使用InnoDB表；
 - （4）DELETE FROM table时，InnoDB不会重新建立表，而是一行一行的 删除；
 - （5）LOAD TABLE FROM MASTER操作对InnoDB是不起作用的，解决方法是首先把InnoDB表改成MyISAM表，导入数据后再改成InnoDB表，但是对于使用的额外的InnoDB特性（例如外键）的表不适用。
+
+
+
+**一张表，里面有ID自增主键，当insert了17条记录之后，删除了第15,16,17条记录，再把Mysql重启，再insert一条记录，这条记录的ID是18还是15 ？**
+
+![image-20210831153606178](./static/image-20210831153606178.png)
+

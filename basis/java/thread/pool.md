@@ -9,6 +9,16 @@
 
 
 
+# 线程池的优点？
+
+1）重用存在的线程，减少对象创建销毁的开销。 
+
+2）可有效的控制最大并发线程数，提高系统资源的使用率，同时避免过多资源 竞争，避免堵塞。 
+
+3）提供定时执行、定期执行、单线程、并发数控制等功能。
+
+
+
 ## 创建线程池的几个核心构造参数？
 
 Java 中的线程池的创建其实非常灵活，我们可以通过配置不同的参数，创建出行为不同的线程池，这几个参数包括：
@@ -93,3 +103,11 @@ ScheduledThreadPool：核心线程池固定，大小无限的线程池。此线�
 
 ![](./static/图片2.png)
 
+
+
+# 如果你提交任务时，线程池队列已满，这时会发生什么
+
+这里区分一下： 
+
+- 如果使用的是无界队列 LinkedBlockingQueue，也就是无界队列的话，没关系，继续添加任务到阻塞队列中等待执行，因为 LinkedBlockingQueue 可以近乎认为是一个无穷大的队列，可以无限存放任务 
+- 如果使用的是有界队列比如 ArrayBlockingQueue，任务首先会被添加 到 ArrayBlockingQueue 中，ArrayBlockingQueue 满了，会根据 maximumPoolSize 的值增加线程数量，如果增加了线程数量还是处理不过 来，ArrayBlockingQueue 继续满，那么则会使用拒绝策略 RejectedExecutionHandler 处理满了的任务，默认是 AbortPolicy 
