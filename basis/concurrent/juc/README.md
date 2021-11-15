@@ -56,3 +56,94 @@ Executors 为 Executor，ExecutorService，ScheduledExecutorService， ThreadFac
 
 Executors 可以用于方便的创建线程池。
 
+
+
+# 类
+
+java并发工具包-原子变量 atomic
+
+java并发工具包-锁 locks
+
+java并发工具包-执行器与线程池 
+
+​	接口：
+
+​	java.util.concurrent.Executor
+
+​	java.util.concurrent.ExecutorService
+
+​	java.util.concurrent.ScheduledExecutorService
+
+​	java.util.concurrent.Future
+
+​	java.util.concurrent.RunnableFuture
+
+​	实现：
+
+​	java.util.concurrent.ThreadPoolExecutor
+
+​	java.util.concurrent.ScheduledThreadPoolExecutor
+
+​	java.util.concurrent.Executors
+
+​	java.util.concurrent.FutureTask
+
+​	java.util.concurrent.ExecutorCompletionService
+
+​	java.util.concurrent.ForkJoinPool
+
+​	java.util.concurrent.ForkJoinTask
+
+java并发工具包-并发队列 
+
+​	java.util.concurrent.ConcurrentLinkedQueue
+
+​	java.util.concurrent.ConcurrentLinkedDeque
+
+​	java.util.concurrent.BlockingQueue
+
+​	java.util.concurrent.LinkedBlockingQueue
+
+​	java.util.concurrent.ArrayBlockingQueue
+
+​	java.util.concurrent.SynchronousQueue
+
+​	java.util.concurrent.PriorityBlockingQueue
+
+​	java.util.concurrent.DelayQueue
+
+​	java.util.concurrent.TransferQueue
+
+​	java.util.concurrent.LinkedTransferQueue
+
+​	java.util.concurrent.BlockingDeque
+
+​	java.util.concurrent.LinkedBlockingDeque
+
+java并发工具包-并发集合 
+
+​	java.util.concurrent.ConcurrentHashMap
+
+​	java.util.concurrent.ConcurrentSkipListMap
+
+​	java.util.concurrent.ConcurrentSkipListSet
+
+​	java.util.concurrent.CopyOnWriteArrayList
+
+​	java.util.concurrent.CopyOnWriteArraySet
+
+java并发工具包-同步工具
+
+​	java.util.concurrent.Semaphore
+
+​	java.util.concurrent.CountDownLatch
+
+​	java.util.concurrent.CyclicBarrier
+
+​	java.util.concurrent.Phaser
+
+​	java.util.concurrent.Exchanger
+
+java并发工具包-时间处理 
+
+​	java.util.concurrent.TimeUnit
