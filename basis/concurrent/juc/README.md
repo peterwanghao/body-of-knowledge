@@ -96,29 +96,31 @@ java并发工具包-执行器与线程池
 
 java并发工具包-并发队列 
 
-​	java.util.concurrent.ConcurrentLinkedQueue
-
-​	java.util.concurrent.ConcurrentLinkedDeque
-
 ​	java.util.concurrent.BlockingQueue
 
-​	java.util.concurrent.LinkedBlockingQueue
+​		java.util.concurrent.ArrayBlockingQueue
 
-​	java.util.concurrent.ArrayBlockingQueue
+​		java.util.concurrent.LinkedBlockingQueue
 
-​	java.util.concurrent.SynchronousQueue
+​		java.util.concurrent.PriorityBlockingQueue
 
-​	java.util.concurrent.PriorityBlockingQueue
+​		java.util.concurrent.SynchronousQueue
 
-​	java.util.concurrent.DelayQueue
+​		java.util.concurrent.DelayQueue
 
-​	java.util.concurrent.TransferQueue
-
-​	java.util.concurrent.LinkedTransferQueue
+​		java.util.concurrent.ConcurrentLinkedQueue
 
 ​	java.util.concurrent.BlockingDeque
 
-​	java.util.concurrent.LinkedBlockingDeque
+​		java.util.concurrent.LinkedBlockingDeque
+
+​		java.util.concurrent.ConcurrentLinkedDeque
+
+​	java.util.concurrent.TransferQueue
+
+​		java.util.concurrent.LinkedTransferQueue
+
+​	
 
 java并发工具包-并发集合 
 
