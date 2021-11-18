@@ -44,8 +44,6 @@ lock()获取锁,调用该方法当前线程将会获取锁。unlock()释放锁�
 
 通过tryLock()方法来实现限时等待，可以选择传入时间参数，表示等待指定的时间，无参则表示立即返回锁申请的结果：true表示获取锁成功，false表示获取锁失败。我们可以将这种方法用来解决死锁问题。
 
-
-
 ReentranLock整体结构：
 
 - ReentrantLock 实现 Lock 接口，基于内部的 Sync 实现。
@@ -66,6 +64,22 @@ ReentrantLock的基本实现可以概括为：先通过CAS尝试获取锁。如�
 非公平锁：如果同时还有另一个线程进来尝试获取，那么有可能会让这个线程抢先获取；
 
 公平锁：如果同时还有另一个线程进来尝试获取，当它发现自己不是在队首的话，就会排到队尾，由队首的线程获取到锁。
+
+**Condition **
+
+ReentrantLock还提供了条件Condition，对线程的等待、唤醒操作更加详细和灵活，所以在多个条件变量和高度竞争锁的地方，ReentrantLock更加适合。
+
+Condition是在java 1.5中才出现的，它用来替代传统的Object的wait()、notify()实现线程间的协作，相比使用Object的wait()、notify()，使用Condition的await()、signal()这种方式实现线程间协作更加安全和高效。因此通常来说比较推荐使用Condition。
+
+Condition类能实现synchronized和wait、notify搭配的功能，另外比后者更灵活，Condition可以实现多路通知功能，也就是在一个Lock对象里可以创建多个Condition（即对象监视器）实例，线程对象可以注册在指定的Condition中，从而可以有选择的进行线程通知，在调度线程上更加灵活。而synchronized就相当于整个Lock对象中只有一个单一的Condition对象，所有的线程都注册在这个对象上。线程开始notifyAll时，需要通知所有的WAITING线程，没有选择权，会有相当大的效率问题。
+
+1、Condition是个接口，基本的方法就是await()和signal()方法。
+
+2、Condition依赖于Lock接口，生成一个Condition的基本代码是lock.newCondition()。
+
+3、调用Condition的await()和signal()方法，都必须在lock保护之内，就是说必须在lock.lock()和lock.unlock之间才可以使用。
+
+4、Conditon中的await()对应Object的wait()，Condition中的signal()对应Object的notify()，Condition中的signalAll()对应Object的notifyAll()。
 
 ### 2.2 ReadWriteLock
 

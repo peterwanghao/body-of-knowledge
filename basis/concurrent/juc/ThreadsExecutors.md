@@ -96,6 +96,8 @@ ScheduledExecutorService newScheduledThreadPool(int corePoolSize, ThreadFactory 
 
 - DelayedWorkQueue优先队列，是基于堆结构的等待队列。
 
+使用优先级队列DelayedWorkQueue，保证添加到队列中的任务，会按照任务的延时时间进行**排序**，延时时间少的任务首先被获取。
+
 ### 5、构建可延时/周期的单线程线程池
 
 ScheduledExecutorService newSingleThreadScheduledExecutor()
