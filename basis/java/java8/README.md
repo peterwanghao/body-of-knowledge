@@ -1,5 +1,3 @@
-https://blog.csdn.net/qq_28410283/article/details/80704487
-
 ## 1. Lambda表达式
 
 Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。可以把Lambda表达式理解为简洁地表示可传递的匿名函数的一种方式：它没有名称，但它有参数列表、函数主体、返回类型，可能还有一个可以抛出的异常列表。
@@ -100,6 +98,8 @@ public class LamdbaDemo {
 ```
 
 **lamabd表达式中，需要有函数式接口的支持；**
+
+
 
 ## 2. 函数式接口
 
@@ -231,6 +231,8 @@ JDK 1.8之前已有的函数式接口:
     java.beans.PropertyChangeListener
     java.awt.event.ActionListener
     javax.swing.event.ChangeListener
+
+
 
 ## 3. 流Stream
 
@@ -397,7 +399,101 @@ Parallel Stream 受 CPU 环境影响很大，当没分配到多个cpu核心时�
 
 stream 中含有装箱类型，在进行中间操作之前，最好**转成对应的数值流**，减少由于频繁的拆箱、装箱造成的性能损失；
 
+
+
 ## 4. 组合式异步编程CompletableFuture
+
+JDK5新增了Future接口，用于描述一个异步计算的结果。虽然 Future 以及相关使用方法提供了异步执行任务的能力，但是对于结果的获取却是很不方便，只能通过阻塞方式`get()`或者轮询的方式`isDone()`得到任务的结果。阻塞的方式显然和我们的异步编程的初衷相违背，轮询的方式又会耗费无谓的 CPU 资源，而且也不能及时地得到计算结果。
+
+从Java 8开始引入了`CompletableFuture`，它针对`Future`做了改进，可以传入回调对象，当异步任务完成或者发生异常时，自动调用回调对象的回调方法。
+
+CompletableFuture实现了**CompletionStage接口**和**Future接口**，前者是对后者的一个扩展，增加了异步回调、流式处理、多个Future组合处理的能力，使Java在处理多任务的协同工作时更加顺畅便利。
+
+CompletionStage接口
+
+- CompletionStage代表异步计算过程中的某一个阶段，一个阶段完成以后可能会触发另外一个阶段
+- 一个阶段的计算执行可以是一个Function，Consumer或者Runnable。比如：stage.thenApply(x -> square(x)).thenAccept(x -> System.out.print(x)).thenRun(() -> System.out.println())
+- 一个阶段的执行可能是被单个阶段的完成触发，也可能是由多个阶段一起触发
+
+
+
+### 创建异步操作
+
+java.util.concurrent.CompletableFuture 提供了四个静态方法来创建一个异步操作。
+
+```java
+public static CompletableFuture<Void> runAsync(Runnable runnable)
+public static CompletableFuture<Void> runAsync(Runnable runnable,Executor executor)
+public static <U> CompletableFuture<U> supplyAsync(Supplier<U> supplier)
+public static <U> CompletableFuture<U> supplyAsync(Supplier<U> supplier, Executor executor)
+```
+
+没有指定Executor的方法会使用全局的 `ForkJoinPool.commonPool()`中获得一个线程执行这些任务。如果指定线程池，则使用指定的线程池运行。以下所有的方法都类同:
+
+- runAsync方法不支持返回值。
+- supplyAsync可以支持返回值。
+
+### 计算完成时的回调方法
+
+当CompletableFuture的计算结果完成，或者抛出异常的时候，可以执行特定的Action。
+
+**whenComplete 和 whenCompleteAsync** 区别：方法不以Async结尾，意味着Action使用相同的线程执行，而Async可能会使用其他线程执行（如果是使用相同的线程池，也可能会被同一个线程选中执行）
+
+**handle** 是执行**任务完成时**对结果的处理。handle 是在任务完成后再执行，还可以处理异常的任务。
+
+whenComplete接收的是BiConsumer，handler接收的是BiFunction；BiConsumer没有返回值，而BiFunction是有的。一个是返回传进去的值,一个是返回处理返回的值。
+
+### 转换和运行 线程串行化方法
+
+可以使用 `thenApply()`, `thenAccept()` 和`thenRun()`方法附上一个回调给CompletableFuture。
+
+可以使用 `thenApply()` 处理和改变CompletableFuture的结果。持有一个`Function<R,T>`作为参数。`Function<R,T>`是一个简单的函数式接口，接受一个T类型的参数，产出一个R类型的结果。
+
+如果你不想从你的回调函数中返回任何东西，仅仅想在Future完成后运行一些代码片段，你可以使用`thenAccept() `和 `thenRun()`方法，这些方法经常在调用链的最末端的最后一个回调函数中使用。
+`CompletableFuture.thenAccept() `持有一个`Consumer<T> `，返回一个`CompletableFuture<Void>`。它可以访问`CompletableFuture`的结果。
+
+虽然`thenAccept()`可以访问CompletableFuture的结果，但`thenRun()`不能访Future的结果，它持有一个Runnable返回CompletableFuture<Void>：
+
+## 组合
+
+**使用 `thenCompose() `组合两个独立的future**
+
+如果你的回调函数返回一个CompletableFuture，但是你想从CompletableFuture链中获取一个直接合并后的结果，这时候你可以使用`thenCompose()`。
+
+**使用`thenCombine()`组合两个独立的 future**
+
+虽然`thenCompose()`被用于当一个future依赖另外一个future的时候用来组合两个future。`thenCombine()`被用来当两个独立的`Future`都完成的时候，用来做一些事情。
+
+**组合多个CompletableFuture**
+
+```java
+static CompletableFuture<Void> allOf(CompletableFuture<?>... cfs)
+static CompletableFuture<Object> anyOf(CompletableFuture<?>... cfs)
+```
+
+`CompletableFuture.allOf`的使用场景是当你一个列表的独立future，并且你想在它们都完成后并行的做一些事情。
+
+`CompletableFuture.anyOf()`和其名字介绍的一样，当任何一个CompletableFuture完成的时候【相同的结果类型】，返回一个新的CompletableFuture。
+
+### 异常处理
+
+**1. 使用 exceptionally() 回调处理异常**
+`exceptionally()`回调给你一个从原始Future中生成的错误恢复的机会。你可以在这里记录这个异常并返回一个默认值。
+
+**2. 使用 handle() 方法处理异常**
+API提供了一个更通用的方法 - `handle()`从异常恢复，无论一个异常是否发生它都会被调用。
+
+
+
+
+可见`CompletableFuture`的优点是：
+
+- 异步任务结束时，会自动回调某个对象的方法；
+- 异步任务出错时，会自动回调某个对象的方法；
+- 主线程设置好回调后，不再关心异步任务的执行。
+
+
+
 ## 5. Optional静态类
 
 几乎所有的Java程序员碰到NullPointerException时的第一冲动就是添加一个if语句，在调用方法使用该变量之前检查它的值是否为null，快速地搞定问题。
