@@ -12,6 +12,7 @@
         * [3 Java类加载](./basis/java/classload/README.md)
         * [4 Java泛型](./basis/java/generics/README.md)
         * [5 Java8](./basis/java/java8/README.md)
+        * [6 数据类型](./basis/java/dataTypes/README.md)
     * [第2节 并发编程](./basis/concurrent/README.md)
         * [1 Synchronized](./basis/concurrent/synchronized.md)
         * [2 Lock](./basis/concurrent/lock.md)
